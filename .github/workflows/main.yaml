@@ -1,0 +1,14 @@
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      pages: write
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: results/
+      - uses: actions/deploy-pages@v5
